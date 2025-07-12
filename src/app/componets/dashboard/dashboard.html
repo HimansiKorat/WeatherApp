@@ -1,0 +1,63 @@
+<div class="weather-container">
+  <h2>🌦️ Weather App</h2>
+
+  <div class="search-bar">
+    <input type="text" [(ngModel)]="city" placeholder="Enter city name" />
+    <button (click)="onSearch()">Search</button>
+  </div>
+
+  <div *ngIf="isLoading" class="loading">Loading...</div>
+  <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
+
+  <div *ngIf=" weatherData && weatherData.current_condition?.length && weatherData.nearest_area?.length" class="weather-card">
+    <h3 class="location">
+      {{ weatherData.nearest_area[0].areaName[0].value }},
+      {{ weatherData.nearest_area[0].region[0].value }},
+      {{ weatherData.nearest_area[0].country[0].value }}
+    </h3>
+
+    <div class="current-condition">
+      <p>
+        <strong>🌡️ Temperature:</strong>
+        {{ weatherData.current_condition[0].temp_C }}°C
+      </p>
+      <p>
+        <strong>🤗 Feels Like:</strong>
+        {{ weatherData.current_condition[0].FeelsLikeC }}°C
+      </p>
+      <p>
+        <strong>💧 Humidity:</strong>
+        {{ weatherData.current_condition[0].humidity }}%
+      </p>
+      <p>
+        <strong>💨 Wind Speed:</strong>
+        {{ weatherData.current_condition[0].windspeedKmph }} km/h
+      </p>
+      <p>
+        <strong>☁️ Condition:</strong>
+        {{ weatherData.current_condition[0].weatherDesc[0].value }}
+      </p>
+    </div>
+
+    <h4 class="forecast-title">📅 3-Day Forecast</h4>
+    <table class="forecast-table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Max (°C)</th>
+          <th>Min (°C)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let forecast of weatherData.weather">
+          <td>{{ forecast.date }}</td>
+          <td>{{ forecast.maxtempC }}</td>
+          <td>{{ forecast.mintempC }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="container d-flex justify-content-center mt-4">
+  <button class="btn btn-primary" (click)="goToProduct()">Go to Product Page</button>
+</div>
