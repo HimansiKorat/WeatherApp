@@ -2,58 +2,107 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.1.0.
 
-## Development server
+# 🌐 Angular Live API Project – Product CRUD  + Weather App
 
-To start a local development server, run:
+This is a **frontend-only Angular project** using live public APIs.  
+It includes two modules:
+
+1. 🛍️ **Product CRUD App** – powered by [FakeStoreAPI](https://fakestoreapi.com)
+2. 🌦️ **Weather App** – powered by [Wttr.in](https://wttr.in)
+
+---
+
+## 📦 Tech Stack
+
+- Angular 20
+- HTML + CSS
+- TypeScript
+- RxJS
+- Angular Routing
+- Live Public REST APIs
+- Angular CLI
+
+---
+
+## 🔸 Part A – Product CRUD App
+
+### 🌐 API Used:
+https://fakestoreapi.com/products
+
+
+### ✅ Features:
+- ✅ View all products (GET)
+- 🚫 Add product (POST)
+- 🚫 Edit product (PUT)
+- 🚫 Delete product (DELETE)
+
+> ⚠️ **Note:** FakeStoreAPI is a mock API.  
+> Only `GET` requests work fully.  
+> `POST`, `PUT`, and `DELETE` are implemented correctly in code but **do not persist changes**.
+
+### 📁 Component:
+| Name              | Purpose                             |
+|-------------------|-------------------------------------|
+| `product-crud`    | Handles displaying & form for CRUD  |
+
+### 📂 Service:
+| File                  | Description                            |
+|------------------------|----------------------------------------|
+| `product.service.ts`   | Calls FakeStoreAPI for CRUD actions    |
+
+---
+
+## 🔸 Part B – Weather App
+
+### ✅ Features:
+- Input city name
+- Fetch weather info:
+  - Temperature
+  - Weather description
+  - Humidity
+  - Feels-like temperature
+- Loading indicator
+- Error handling
+
+### 📁 Component:
+| Name          | Purpose                        |
+|---------------|--------------------------------|
+| `dashboard`   | Search input and display result |
+
+### 📂 Service:
+| File                  | Description                       |
+|------------------------|-----------------------------------|
+| `weather.service.ts`   | Calls Wttr.in API using HttpClient |
+
+---
+
+## 📁 Folder Structure
+
+
+---
+
+## ⚙️ How to Setup and Run
+
+Follow these steps to run the app locally:
+
+### ✅ Prerequisites:
+- Node.js and npm installed
+- Angular CLI installed (`npm install -g @angular/cli`)
+
+### 🔧 Setup
 
 ```bash
-ng serve
-```
+# Step 1: Clone the repository
+git clone https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+# Step 2: Navigate into project
+cd YOUR_REPO_NAME
 
-## Code scaffolding
+# Step 3: Install dependencies
+npm install
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+# Start Angular app
+ng serve -o
 
-```bash
-ng generate component component-name
-```
+http://localhost:4200
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
